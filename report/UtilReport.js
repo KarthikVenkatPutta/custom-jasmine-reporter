@@ -5,18 +5,27 @@ var startHTML=`<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
+    <link rel="stylesheet" href="./lib/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="./lib/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <title>Custom-Jasmine-Reporter</title>
 </head>
 <body>
-<table border="1">
+<div class="container">
+<table class="table">
+<thead class="thead-dark">
 <tr>
-  <th>Spec</th>
-  <th>Result</th>
-</tr>`;
+  <th scope="col">Spec</th>
+  <th scope="col">Result</th>
+</tr>
+</thead>
+<tbody>
+`;
 
 //End of HTML
 var endHTML=`
+</tbody>
 </table>
+</div>
 </body>
 </html>`
 
@@ -25,7 +34,7 @@ var suiteStarted=function(result)
 {
 return `
 <tr>
-<th colspan="3">${result.description}</th>
+<th colspan="3">${result.description} Started</th>
 </tr>`
 }
 
@@ -34,7 +43,7 @@ var suiteEnded=function(result)
 {
   return `
   <tr>
-    <th colspan="3">${result.description}+" "+"Ended"</th>
+    <th colspan="3">${result.description} Ended</th>
   </tr>`
 }
 
